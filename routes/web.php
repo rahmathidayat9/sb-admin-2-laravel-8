@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['namespace' => 'Admin','middleware' => 'auth','prefix' => 'admin'],function(){
+	Route::name('admin.')->group(function(){
+		Route::resource('/user','UserController');
+	});
+});
+
 //Pages
 Route::view('/register','auth.register')->name('register');
 Route::view('/login','auth.login')->name('login');
