@@ -1,31 +1,36 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use DataTables;
+use Hash;
 
 use App\Models\User;
 
+
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::select('*');
-            return Datatables::of($data)
+            $data = User::select('*')->orderBy('created_at','DESC');
+            return DataTables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
      
-                           $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">edit</a>';
-       
+                           $btn = '<div class="row"><a href="javascript:void(0)" id="'.$row->id.'" class="btn btn-primary btn-sm ml-2 btn-edit">Edit</a>';
+                           $btn .= '<a href="javascript:void(0)" id="'.$row->id.'" class="btn btn-danger btn-sm ml-2 btn-delete">Delete</a></div>';
+
                             return $btn;
                     })
                     ->rawColumns(['action'])
                     ->make(true);
         }
         
-        return view('users');
+        return view('admin.user.index');
     }
 
     public function create()
@@ -34,8 +39,9 @@ class UserController extends Controller
     }
 
     public function store(Request $request)
-    {
-        
+    {   
+        $request->request->add(['password' => Hash::make($request->password)]);
+        User::create($request->all());
     }
 
     public function show($id)
@@ -43,18 +49,18 @@ class UserController extends Controller
         
     }
 
-    public function edit($id)
+    public function edit(User $user)
     {
-        
+        return response()->json($user);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        
+        $user->update($request->all());
     }
 
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        
+        $user->delete();
     }
 }
