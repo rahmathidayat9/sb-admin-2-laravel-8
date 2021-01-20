@@ -22,24 +22,29 @@ Email : admin@gmail.com | Password : password
 - Simple basic jquery ajax crud dengan datatable serverside
 
 ## Preview
+
 <b>- Home<b>
-<a href="https://raw.githubusercontent.com/rahmathidayat9/readme-images/master/laravel-sb-admin-2/Screenshot%20(801).png?token=ARO6SRA2CDFA4YUKX4BOHMTAA6DYE">
-<img src="https://raw.githubusercontent.com/rahmathidayat9/readme-images/master/laravel-sb-admin-2/Screenshot%20(801).png?token=ARO6SRA2CDFA4YUKX4BOHMTAA6DYE">
+
+<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(801).png?raw=true">
+<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(801).png?raw=true">
 </a>
 
 <b>- Login<b>
-<a href="https://raw.githubusercontent.com/rahmathidayat9/readme-images/master/laravel-sb-admin-2/Screenshot%20(803).png?token=ARO6SRHPWSPINQ5UYGTLYRTAA6D3O">
-	<img src="https://raw.githubusercontent.com/rahmathidayat9/readme-images/master/laravel-sb-admin-2/Screenshot%20(803).png?token=ARO6SRHPWSPINQ5UYGTLYRTAA6D3O">
+
+<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(803).png?raw=true">
+	<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(803).png?raw=true">
 </a>
 
 <b>-Dashboard<b>
-<a href="https://raw.githubusercontent.com/rahmathidayat9/readme-images/master/laravel-sb-admin-2/Screenshot%20(804).png?token=ARO6SRGASFX7UNCHTEDM2P3AA6ECW">
-	<img src="https://raw.githubusercontent.com/rahmathidayat9/readme-images/master/laravel-sb-admin-2/Screenshot%20(804).png?token=ARO6SRGASFX7UNCHTEDM2P3AA6ECW">
+
+<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(804).png?raw=true">
+	<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(804).png?raw=true">
 </a>
 
 <b>-Yajra Crud Datatable<b>
-<a href="https://raw.githubusercontent.com/rahmathidayat9/readme-images/master/laravel-sb-admin-2/Screenshot%20(805).png?token=ARO6SRBCEO2DXOCVMCWEOE3AA6EGQ">
-	<img src="https://raw.githubusercontent.com/rahmathidayat9/readme-images/master/laravel-sb-admin-2/Screenshot%20(805).png?token=ARO6SRBCEO2DXOCVMCWEOE3AA6EGQ">
+
+<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(805).png?raw=true">
+	<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(805).png?raw=true">
 </a>
 
 ## Author
