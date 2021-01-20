@@ -3,6 +3,10 @@
 CHIKADMIN adalah simpel starter untuk laravel dengan template sb-admin-2 , keuntungan CHIKADMIN adalah kita tidak perlu memulai integrasi,sistem login dari awal.
 </b></p>
 
+## Instalasi
+- download zip <a href="https://github.com/rahmathidayat9/sb-admin-2-laravel-8/archive/master.zip">disini</a> 
+- atau clone : git clone https://github.com/rahmathidayat9/sb-admin-2-laravel-8.git
+
 ## Setup
 - buka direktori project di terminal anda.
 
