@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 //Auth
 use App\Http\Controllers\Auth\LoginController;
 
+//Admin
+use App\Http\Controllers\Admin\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +23,13 @@ Route::view('/','welcome');
 
 
 Route::group(['namespace' => 'Admin','middleware' => 'auth'],function(){
+	
+	Route::get('/admin',[AdminController::class,'index'])->name('admin');
+
+	//Route Rescource
 	Route::resource('/admin/user','UserController');
 
 	//Route View
-	Route::view('/admin','admin.index')->name('admin');
 	Route::view('/admin/404-page','admin.404-page')->name('404-page');
 	Route::view('/admin/blank-page','admin.blank-page')->name('blank-page');
 	Route::view('/admin/buttons','admin.buttons')->name('buttons');

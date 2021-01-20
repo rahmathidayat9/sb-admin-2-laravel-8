@@ -14,6 +14,7 @@
                         <div class="p-5">
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                @include('layout.component.alert-dismissible')
                             </div>
                             <form class="user" method="POST" action="{{ route('login.post') }}">
                                 @csrf

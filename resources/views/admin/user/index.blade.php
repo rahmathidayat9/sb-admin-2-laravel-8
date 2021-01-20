@@ -40,28 +40,30 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="create-modalLabel">Edit Data</h5>
+        <h5 class="modal-title" id="create-modalLabel">Create Data</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        <form id="createForm">
         <div class="form-group">
-            <label for="name">Name</label>
-            <input type="" required="" id="name" name="" class="form-control">
+            <label for="n">Name</label>
+            <input type="" required="" id="n" name="name" class="form-control">
         </div>
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="" required="" id="email" name="" class="form-control">
+            <label for="e">Email</label>
+            <input type="" required="" id="e" name="email" class="form-control">
         </div>
         <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" required="" id="password" name="" class="form-control">
+            <label for="p">Password</label>
+            <input type="password" required="" id="p" name="password" class="form-control">
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary btn-store">Simpan</button>
+        <button type="submit" class="btn btn-primary btn-store">Simpan</button>
+        </form>
       </div>
     </div>
   </div>
@@ -79,19 +81,21 @@
         </button>
       </div>
       <div class="modal-body">
+        <form id="editForm">
         <div class="form-group">
-            <label for="n">Name</label>
-            <input type="hidden" required="" id="i" name="id" class="form-control">
-            <input type="" required="" id="n" name="name" class="form-control">
+            <label for="name">Name</label>
+            <input type="hidden" required="" id="id" name="id" class="form-control">
+            <input type="" required="" id="name" name="name" class="form-control">
         </div>
         <div class="form-group">
-            <label for="e">Email</label>
-            <input type="" required="" id="e" name="email" class="form-control">
+            <label for="email">Email</label>
+            <input type="" required="" id="email" name="email" class="form-control">
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary btn-update">Update</button>
+        <button type="submit" class="btn btn-primary btn-update">Update</button>
+        </form>
       </div>
     </div>
   </div>
@@ -121,25 +125,29 @@
     });
   });
 
+
+    // Reset Form
+        function resetForm(){
+            $("[name='name']").val("")
+            $("[name='email']").val("")
+            $("[name='password']").val("")
+        }
+    //
+
     // Create 
 
-    $(".btn-store").on("click",function(){
-        var name = $("#name").val()
-        var email = $("#email").val()
-        var password = $("#password").val()
+    $("#createForm").on("submit",function(e){
+        e.preventDefault()
 
         $.ajax({
             url: "/admin/user",
             method: "POST",
-            data: {
-                name : name,
-                email : email,
-                password : password
-            },
+            data: $(this).serialize(),
             success:function(){
                 $("#create-modal").modal("hide")
-                $(".data-table").DataTable().ajax.reload();
+                $('.data-table').DataTable().ajax.reload();
                 flash("success","Data berhasil ditambah")
+                resetForm()
             }
         })
     })
@@ -155,27 +163,23 @@
             method: "GET",
             success:function(response){
                 $("#edit-modal").modal("show")
-                $("[name='id']").val(response.id)
-                $("[name='name']").val(response.name)
-                $("[name='email']").val(response.email)
+                $("#id").val(response.id)
+                $("#name").val(response.name)
+                $("#email").val(response.email)
             }
         })
     });
 
-    $(".btn-update").on("click",function(){
-        var id = $("[name='id']").val()
-        var name = $("[name='name']").val()
-        var email = $("[name='email']").val()
+    $("#editForm").on("submit",function(e){
+        e.preventDefault()
+        var id = $("#id").val()
 
         $.ajax({
             url: "/admin/user/"+id,
             method: "PATCH",
-            data:{
-                id : id,
-                name : name,
-                email : email
-            },
+            data: $(this).serialize(),
             success:function(){
+                $('.data-table').DataTable().ajax.reload();
                 $("#edit-modal").modal("hide")
                 flash("success","Data berhasil diupdate")
             }
