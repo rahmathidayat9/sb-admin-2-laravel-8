@@ -1,6 +1,6 @@
 ## CHIKADMIN
 <p><b>
-CHIKADMIN adalah simpel starter untuk laravel dengan template sb-admin-2 , keuntungan CHIKADMIN adalah kita tidak perlu memulai integrasi,sistem login dari awal.
+CHIKADMIN adalah simpel starter untuk laravel dengan template sb-admin-2 , keuntungan CHIKADMIN adalah kita tidak perlu memulai integrasi,sistem login autorisasi dari awal.
 </b></p>
 
 ## Instalasi
@@ -15,15 +15,17 @@ Lalu ketik command dibawah ini
 - php artisan optimize:clear 
 - php artisan key:generate (generate app key)
 - php artisan migrate (migrasi database)
-- php artisan db:seed --class=UserClass (mengisi data table users)
+- php artisan db:seed --class=UserClass (mengisi data table users) atau bisa juga php artisan db:seed (semua tabel)
 
 ## Login
-Email : admin@gmail.com | Password : password
+- Email : admin@gmail.com
+- Password : password
 
 ## Fitur
-- Login
+- Autentikasi dengan Laravel Auth
+- Autorisasi dengan Laravel Gate
 - Yajra DataTable Serverside
-- Simple basic jquery ajax crud dengan datatable serverside
+- jquery ajax crud dengan datatable serverside example
 
 ## Preview
 
@@ -32,27 +34,35 @@ Email : admin@gmail.com | Password : password
 <a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(801).png?raw=true">
 <img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(801).png?raw=true">
 </a>
-
+<br><br>
 
 <b>- Login<b>
 
 <a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(803).png?raw=true">
 	<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(803).png?raw=true">
 </a>
+<br><br>
 
+<b>- Dashboard<b>
 
-<b>-Dashboard<b>
-
-<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(804).png?raw=true">
-	<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(804).png?raw=true">
+<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(830).png?raw=true">
+	<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(830).png?raw=true">
 </a>
+<br><br>
 
+<b>- Profile<b>
 
-<b>-Yajra Crud Datatable<b>
+<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(831).png?raw=true">
+	<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(831).png?raw=true">
+</a>
+<br><br>
+
+<b>- Yajra Crud Datatable<b>
 
 <a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(805).png?raw=true">
 	<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(805).png?raw=true">
 </a>
+<br><br>
 
 ## Author
 - Rahmat Hidayatullah
