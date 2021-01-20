@@ -25,6 +25,7 @@
                             <th>Id</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Role</th>
                             <th width="100px">Action</th>
                         </tr>
                     </thead>
@@ -59,6 +60,14 @@
             <label for="p">Password</label>
             <input type="password" required="" id="p" name="password" class="form-control">
         </div>
+        <div class="form-group">
+            <label for="r">Role</label>
+            <select name="role" id="r" class="form-control">
+                <option disabled="">- PILIH ROLE -</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -91,6 +100,14 @@
             <label for="email">Email</label>
             <input type="" required="" id="email" name="email" class="form-control">
         </div>
+        <div class="form-group">
+            <label for="role">Role</label>
+            <select name="role" id="role" class="form-control">
+                <option disabled="">- PILIH ROLE -</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -120,6 +137,7 @@
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
             {data: 'email', name: 'email'},
+            {data: 'role', name: 'role'},
             {data: 'action', name: 'action', orderable: false, searchable: true},
         ]
     });
@@ -166,6 +184,7 @@
                 $("#id").val(response.id)
                 $("#name").val(response.name)
                 $("#email").val(response.email)
+                $("#role").val(response.role)
             }
         })
     });

@@ -2,11 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
-//Auth
+//Namespace Auth
 use App\Http\Controllers\Auth\LoginController;
 
-//Admin
+//Namespace Admin
 use App\Http\Controllers\Admin\AdminController;
+
+//Namespace User
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,24 +26,33 @@ use App\Http\Controllers\Admin\AdminController;
 Route::view('/','welcome');
 
 
-Route::group(['namespace' => 'Admin','middleware' => 'auth'],function(){
+Route::group(['namespace' => 'Admin','middleware' => 'auth','prefix' => 'admin'],function(){
 	
-	Route::get('/admin',[AdminController::class,'index'])->name('admin');
+	Route::get('/',[AdminController::class,'index'])->name('admin')->middleware(['can:isAdmin']);
 
 	//Route Rescource
-	Route::resource('/admin/user','UserController');
+	Route::resource('/user','UserController')->middleware(['can:isAdmin']);
 
 	//Route View
-	Route::view('/admin/404-page','admin.404-page')->name('404-page');
-	Route::view('/admin/blank-page','admin.blank-page')->name('blank-page');
-	Route::view('/admin/buttons','admin.buttons')->name('buttons');
-	Route::view('/admin/cards','admin.cards')->name('cards');
-	Route::view('/admin/utilities-colors','admin.utilities-color')->name('utilities-colors');
-	Route::view('/admin/utilities-borders','admin.utilities-border')->name('utilities-borders');
-	Route::view('/admin/utilities-animations','admin.utilities-animation')->name('utilities-animations');
-	Route::view('/admin/utilities-other','admin.utilities-other')->name('utilities-other');
-	Route::view('/admin/chart','admin.chart')->name('chart');
-	Route::view('/admin/tables','admin.tables')->name('tables');
+	
+	Route::view('/404-page','admin.404-page')->name('404-page');
+	Route::view('/blank-page','admin.blank-page')->name('blank-page');
+	Route::view('/buttons','admin.buttons')->name('buttons');
+	Route::view('/cards','admin.cards')->name('cards');
+	Route::view('/utilities-colors','admin.utilities-color')->name('utilities-colors');
+	Route::view('/utilities-borders','admin.utilities-border')->name('utilities-borders');
+	Route::view('/utilities-animations','admin.utilities-animation')->name('utilities-animations');
+	Route::view('/utilities-other','admin.utilities-other')->name('utilities-other');
+	Route::view('/chart','admin.chart')->name('chart');
+	Route::view('/tables','admin.tables')->name('tables');
+	
+
+});
+
+Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'user'],function(){
+	Route::get('/',[UserController::class,'index'])->name('user');
+	Route::get('/profile',[ProfileController::class,'index'])->name('profile');
+	Route::patch('/profile/update/{user}',[ProfileController::class,'update'])->name('profile.update');
 });
 
 Route::group(['namespace' => 'Auth','middleware' => 'guest'],function(){

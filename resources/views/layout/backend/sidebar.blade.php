@@ -12,11 +12,27 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
+    @can('isAdmin')
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
+    @endcan
+
+    @can('isUser')
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('user') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>  
+    @elseCan('isAdmin')
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('user') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>User Dashboard</span></a>
+    </li>
+    @endCan
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -26,6 +42,7 @@
         Interface
     </div>
 
+    @can('isAdmin')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
             aria-expanded="true" aria-controls="collapseOne">
@@ -38,6 +55,7 @@
             </div>
         </div>
     </li>
+    @endcan
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
@@ -115,6 +133,12 @@
         <a class="nav-link" href="{{ route('tables') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('profile') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Profile</span></a>
     </li>
 
     <!-- Divider -->
