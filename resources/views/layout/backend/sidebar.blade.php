@@ -12,7 +12,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    @can('isAdmin')
+    @can('admin')
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -20,13 +20,13 @@
     </li>
     @endcan
 
-    @can('isUser')
+    @can('user')
     <li class="nav-item">
         <a class="nav-link" href="{{ route('user') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>  
-    @elseCan('isAdmin')
+    @elseCan('admin')
     <li class="nav-item">
         <a class="nav-link" href="{{ route('user') }}">
             <i class="fas fa-fw fa-user"></i>
@@ -42,7 +42,7 @@
         Interface
     </div>
 
-    @can('isAdmin')
+    @can('admin')
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
             aria-expanded="true" aria-controls="collapseOne">

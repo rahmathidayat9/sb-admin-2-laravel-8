@@ -22,11 +22,11 @@
                 <table class="table table-bordered data-table">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>No</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th width="100px">Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -118,6 +118,26 @@
   </div>
 </div>
 <!-- Modal Edit -->
+
+<!-- Destroy Modal -->
+<div class="modal fade" id="destroy-modal" tabindex="-1" role="dialog" aria-labelledby="destroy-modalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="destroy-modalLabel">Yakin Hapus ?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <button type="button" class="btn btn-danger btn-destroy">Hapus</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Destroy Modal -->
+
 @stop
 
 @push('js')
@@ -134,7 +154,7 @@
         serverSide: true,
         ajax: "{{ route('user.index') }}",
         columns: [
-            {data: 'id', name: 'id'},
+            {data: 'DT_RowIndex' , name: 'id'},
             {data: 'name', name: 'name'},
             {data: 'email', name: 'email'},
             {data: 'role', name: 'role'},
@@ -208,16 +228,23 @@
 
     $('body').on("click",".btn-delete",function(){
         var id = $(this).attr("id")
+        $(".btn-destroy").attr("id",id)
+        $("#destroy-modal").modal("show")
+    });
+
+    $(".btn-destroy").on("click",function(){
+        var id = $(this).attr("id")
 
         $.ajax({
             url: "/admin/user/"+id,
             method: "DELETE",
             success:function(){
+                $("#destroy-modal").modal("hide")
                 $('.data-table').DataTable().ajax.reload();
                 flash('success','Data berhasil dihapus')
             }
         });
-    });
+    })
 
     function flash(type,message){
         $(".notify").html(`<div class="alert alert-`+type+` alert-dismissible fade show" role="alert">

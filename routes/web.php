@@ -28,10 +28,10 @@ Route::view('/','welcome');
 
 Route::group(['namespace' => 'Admin','middleware' => 'auth','prefix' => 'admin'],function(){
 	
-	Route::get('/',[AdminController::class,'index'])->name('admin')->middleware(['can:isAdmin']);
+	Route::get('/',[AdminController::class,'index'])->name('admin')->middleware(['can:admin']);
 
 	//Route Rescource
-	Route::resource('/user','UserController')->middleware(['can:isAdmin']);
+	Route::resource('/user','UserController')->middleware(['can:admin']);
 
 	//Route View
 	
