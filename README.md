@@ -31,8 +31,8 @@ Lalu ketik command dibawah ini
 
 <b>- Home<b>
 
-<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(801).png?raw=true">
-<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(801).png?raw=true">
+<a href="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(837).png?raw=true">
+<img src="https://github.com/rahmathidayat9/readme-images/blob/master/laravel-sb-admin-2/Screenshot%20(837).png?raw=true">
 </a>
 <br><br>
 
