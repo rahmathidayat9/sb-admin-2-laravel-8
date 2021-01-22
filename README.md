@@ -9,8 +9,12 @@ CHIKADMIN adalah simpel starter untuk laravel dengan template sb-admin-2 , keunt
 
 ## Setup
 - buka direktori project di terminal anda.
+- copy file .env.example lalu paste lalu ubah file hasil paste menjadi .env
+- edit file .env , ubah misalkan DB_DATABASE=laravel_sb_admin_2
+- buat database dengan nama laravel_sb_admin_2
 
-Lalu ketik command dibawah ini
+Lalu ketik command dibawah ini : 
+
 - composer install
 - php artisan optimize:clear 
 - php artisan key:generate (generate app key)
